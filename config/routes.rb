@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'items/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root  'users#index'  #この1行を追加
+  root to: 'items#index'
 end
