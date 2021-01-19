@@ -1,6 +1,7 @@
 # README
 
 ##users　テーブル
+ has_many :products, solds
 
 | Column         | Type    | Option     |
 | -------------- | ------- | ---------- |
@@ -14,6 +15,8 @@
 | birrhday       | date    | null:false |
 
 ##products　テーブル
+ has_belong :uses
+ has_one :solds
 
 | Column       | Type       | Option     |
 | ------------ | ---------- | ---------- |
@@ -28,6 +31,9 @@
 
 
 ##soldsテーブル
+ has_belong :products
+ has_one :products
+ 
 | Column           | Type          | Option     |
 | ---------------- | ------------- | ---------- |
 | user             | reference     |            |
