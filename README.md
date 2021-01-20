@@ -9,8 +9,8 @@
 | email          | string  | null:false |
 | password       | string  | null:false |
 | lastname       | string  | null:false |
-| firstname      | text    | null:false |
-| lastname_cana  | text    | null:false |
+| firstname      | string  | null:false |
+| lastname_cana  | string  | null:false |
 | firstname_cana | string  | null:false |
 | birrhday       | date    | null:false |
 
@@ -45,7 +45,7 @@
 | building_name    | string        |            |
 | tel              | string        | null:false |
 
-##purchace_history
+##purchace_historyテーブル
 
 | Column   | Type       | Option     |
 | -------- | ---------- | ---------- |
