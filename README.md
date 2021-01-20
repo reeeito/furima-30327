@@ -30,6 +30,7 @@
 | price        | integer    | null:false |
 
 ##soldsテーブル
+ belong_to :uses, products
  has_one :purchase_history
  
 | Column           | Type          | Option     |
