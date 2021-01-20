@@ -44,3 +44,11 @@
 | address          | string        | null:false |
 | building_name    | string        |            |
 | tel              | string        | null:false |
+
+##purchace_history
+
+| Column   | Type       | Option     |
+| -------- | ---------- | ---------- |
+| user     | reference  |            |
+| product  | reference  |            |
+| sold     | reference  |            |  
