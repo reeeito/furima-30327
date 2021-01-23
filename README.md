@@ -1,7 +1,7 @@
 # README
 
 ##users　テーブル
- has_many :products, solds, purchase_history
+ has_many :products, purchase_history
 
 | Column         | Type    | Option     |
 | -------------- | ------- | ---------- |
@@ -12,44 +12,41 @@
 | firstname      | string  | null:false |
 | lastname_cana  | string  | null:false |
 | firstname_cana | string  | null:false |
-| birrhday       | date    | null:false |
+| birthday       | date    | null:false |
 
 ##products　テーブル
- belong_to :uses
+ belongs_to :users
  has_one :purchase_history
 
-| Column       | Type       | Option     |
-| ------------ | ---------- | ---------- |
-| user         | references |            |
-| productname  | string     |            |
-| explanation  | text       | null:false |
-| category     | string     | null:false |
-| state        | integer    | null:false |
-| delivery_fee | integer    | null:false |
-| area         | integer    | null:false |
-| price        | integer    | null:false |
+| Column           | Type       | Option     |
+| ---------------- | ---------- | ---------- |
+| user             | references |            |
+| productname      | string     | null:false |
+| explanation      | text       | null:false |
+| category_id      | string     | null:false |
+| state_id         | integer    | null:false |
+| delivery_fee_id  | integer    | null:false |
+| area_id          | integer    | null:false |
+| delivery_time_id | integer    | null:false |
+| price            | integer    | null:false |
 
 
 ##soldsテーブル
- belong_to :uses, products
  has_one :purchase_history
  
 | Column           | Type          | Option     |
 | ---------------- | ------------- | ---------- |
-| user             | reference     |            |
-| product          | reference     |            |
 | postal_code      | string        | null:false |
-| prefectures      | string        | null:false |
+| area_id          | string        | null:false |
 | municipaity      | string        | null:false |
 | address          | string        | null:false |
 | building_name    | string        |            |
 | tel              | string        | null:false |
 
 ##purchace_historyテーブル
-  has_one :users, products, solds 
+  has_one :user, products
 
 | Column   | Type       | Option     |
 | -------- | ---------- | ---------- |
 | user     | reference  |            |
 | product  | reference  |            |
-| sold     | reference  |            | 
