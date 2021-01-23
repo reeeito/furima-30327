@@ -48,5 +48,5 @@
 
 | Column   | Type       | Option     |
 | -------- | ---------- | ---------- |
-| user     | reference  |            |
-| product  | reference  |            |
+| user     | reference  | null:false |
+| product  | reference  | null:false |
