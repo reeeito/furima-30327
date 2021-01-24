@@ -1,7 +1,8 @@
 # README
 
 ##users　テーブル
- has_many :products, purchase_history
+ has_many :products
+ has_many :purchase_histories
 
 | Column         | Type    | Option                   |
 | -------------- | ------- | ------------------------ |
@@ -10,43 +11,47 @@
 | password       | string  | null:false               |
 | lastname       | string  | null:false               |
 | firstname      | string  | null:false               |
-| lastname_cana  | string  | null:false               |
-| firstname_cana | string  | null:false               |
+| lastname_kana  | string  | null:false               |
+| firstname_kana | string  | null:false               |
 | birthday       | date    | null:false               |
 
 ##products　テーブル
  belongs_to :user
  has_one :purchase_history
 
-| Column           | Type       | Option     |
-| ---------------- | ---------- | ---------- |
-| user             | references |            |
-| productname      | string     | null:false |
-| explanation      | text       | null:false |
-| category_id      | string     | null:false |
-| state_id         | integer    | null:false |
-| delivery_fee_id  | integer    | null:false |
-| area_id          | integer    | null:false |
-| delivery_time_id | integer    | null:false |
-| price            | integer    | null:false |
+| Column           | Type       | Option           |
+| ---------------- | ---------- | ---------------- |
+| user             | references | foreign_key:true |
+| productname      | string     | null:false       |
+| explanation      | text       | null:false       |
+| category_id      | integer    | null:false       |
+| state_id         | integer    | null:false       |
+| delivery_fee_id  | integer    | null:false       |
+| area_id          | integer    | null:false       |
+| delivery_time_id | integer    | null:false       |
+| price            | integer    | null:false       |
 
 
 ##soldsテーブル
- has_one :purchase_history
+ belongs_to :purchase_history
  
-| Column           | Type          | Option     |
-| ---------------- | ------------- | ---------- |
-| postal_code      | string        | null:false |
-| area_id          | integer       | null:false |
-| municipaity      | string        | null:false |
-| address          | string        | null:false |
-| building_name    | string        |            |
-| tel              | string        | null:false |
+| Column              | Type          | Option           |
+| ------------------- | ------------- | ---------------- |
+| postal_code         | string        | null:false       |
+| area_id             | integer       | null:false       |
+| municipaity         | string        | null:false       |
+| address             | string        | null:false       |
+| building_name       | string        |                  |
+| tel                 | string        | null:false       |
+| purchase_history_id | references    | foreign_key:true |
 
 ##purchace_historyテーブル
-  has_one :user, products
+  belongs_to :product
+  belomgs_to :user
+  has_one :sold
 
-| Column   | Type       | Option     |
-| -------- | ---------- | ---------- |
-| user     | reference  | null:false |
-| product  | reference  | null:false |
+
+| Column   | Type       | Option                       |
+| -------- | ---------- | ---------------------------- |
+| user     | reference  | null:false, forein_key: true |
+| product  | reference  | null:false, forein_key: true |
