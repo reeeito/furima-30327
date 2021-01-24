@@ -4,16 +4,16 @@
  has_many :products
  has_many :purchase_histories
 
-| Column         | Type    | Option                   |
-| -------------- | ------- | ------------------------ |
-| nickname       | string  | null:false               |
-| email          | string  | null:false, unique:true  |
-| password       | string  | null:false               |
-| lastname       | string  | null:false               |
-| firstname      | string  | null:false               |
-| lastname_kana  | string  | null:false               |
-| firstname_kana | string  | null:false               |
-| birthday       | date    | null:false               |
+| Column             | Type    | Option                   |
+| ------------------ | ------- | ------------------------ |
+| nickname           | string  | null:false               |
+| email              | string  | null:false, unique:true  |
+| encrypted_password | string  | null:false               |
+| lastname           | string  | null:false               |
+| firstname          | string  | null:false               |
+| lastname_kana      | string  | null:false               |
+| firstname_kana     | string  | null:false               |
+| birthday           | date    | null:false               |
 
 ##products　テーブル
  belongs_to :user
@@ -43,7 +43,7 @@
 | address             | string        | null:false       |
 | building_name       | string        |                  |
 | tel                 | string        | null:false       |
-| purchase_history_id | references    | foreign_key:true |
+| purchase_history    | references    | foreign_key:true |
 
 ##purchace_historyテーブル
   belongs_to :product
