@@ -3,19 +3,20 @@
 ##users　テーブル
  has_many :products, purchase_history
 
-| Column         | Type    | Option     |
-| -------------- | ------- | ---------- |
-| nickname       | string  | null:false |
-| email          | string  | null:false |
-| password       | string  | null:false |
-| lastname       | string  | null:false |
-| firstname      | string  | null:false |
-| lastname_cana  | string  | null:false |
-| firstname_cana | string  | null:false |
-| birthday       | date    | null:false |
+| Column         | Type    | Option      |
+| -------------- | ------- | ----------- |
+| nickname       | string  | null:false  |
+| email          | string  | null:false  |
+| email          | string  | unique:true |
+| password       | string  | null:false  |
+| lastname       | string  | null:false  |
+| firstname      | string  | null:false  |
+| lastname_cana  | string  | null:false  |
+| firstname_cana | string  | null:false  |
+| birthday       | date    | null:false  |
 
 ##products　テーブル
- belongs_to :users
+ belongs_to :user
  has_one :purchase_history
 
 | Column           | Type       | Option     |
