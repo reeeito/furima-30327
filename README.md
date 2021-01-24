@@ -3,17 +3,16 @@
 ##users　テーブル
  has_many :products, purchase_history
 
-| Column         | Type    | Option      |
-| -------------- | ------- | ----------- |
-| nickname       | string  | null:false  |
-| email          | string  | null:false  |
-| email          | string  | unique:true |
-| password       | string  | null:false  |
-| lastname       | string  | null:false  |
-| firstname      | string  | null:false  |
-| lastname_cana  | string  | null:false  |
-| firstname_cana | string  | null:false  |
-| birthday       | date    | null:false  |
+| Column         | Type    | Option                   |
+| -------------- | ------- | ------------------------ |
+| nickname       | string  | null:false               |
+| email          | string  | null:false, unique:true  |
+| password       | string  | null:false               |
+| lastname       | string  | null:false               |
+| firstname      | string  | null:false               |
+| lastname_cana  | string  | null:false               |
+| firstname_cana | string  | null:false               |
+| birthday       | date    | null:false               |
 
 ##products　テーブル
  belongs_to :user
@@ -38,7 +37,7 @@
 | Column           | Type          | Option     |
 | ---------------- | ------------- | ---------- |
 | postal_code      | string        | null:false |
-| area_id          | string        | null:false |
+| area_id          | integer       | null:false |
 | municipaity      | string        | null:false |
 | address          | string        | null:false |
 | building_name    | string        |            |
