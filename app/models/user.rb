@@ -7,10 +7,10 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :lastname, presence: true
   validates :firstname, presence: true
-  validates :lastname_kana, presence: true,format:{with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/}
-  validates :firstname_kana, presence: true,format: {with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/}
+  validates :lastname_kana, presence: true, format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ }
+  validates :firstname_kana, presence: true, format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ }
   validates :birthday, presence: true
 
-  #has_many :products
-  #has_many :purchase_histries
+  # has_many :products
+  # has_many :purchase_histries
 end
