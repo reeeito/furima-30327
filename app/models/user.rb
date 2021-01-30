@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :nickname
-    validates :lastname
-    validates :firstname
+    validates :nickname,format:{ with:/^[ぁ-んァ-ン一-龥]/}
+    validates :lastname,format:{ with:/^[ぁ-んァ-ン一-龥]/}
+    validates :firstname,format:{ with:/^[ぁ-んァ-ン一-龥]/}
     validates :birthday
     validates :lastname_kana,format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ } 
     validates :firstname_kana,format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ } 
