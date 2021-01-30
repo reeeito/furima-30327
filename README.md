@@ -50,7 +50,6 @@
   belomgs_to :user
   has_one :sold
 
-
 | Column   | Type       | Option                       |
 | -------- | ---------- | ---------------------------- |
 | user     | reference  | null:false, forein_key: true |
