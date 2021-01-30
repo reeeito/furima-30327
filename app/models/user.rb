@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   with_options presence: true do
     with_options format: { woth: /^[ぁ-んァ-ン一-龥]/ } do
-      validates:nickname
       validates:lastname
       validates:firstname
     end
-    validates :birthday
+    validates:birthday
+    validates:nickname
     with_options format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ } do
       validates:lastname_kana
       validates:firstname_kana
