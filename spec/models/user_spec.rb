@@ -100,5 +100,44 @@ RSpec.describe User, type: :model do
       another_user.valid?
       expect(another_user.errors.full_messages).to include('Email has already been taken')
     end
+
+    it 'emailは@が含まれていないと登録ができない' do
+      @user.email = 'sample@sample.com'
+      @usr.valid?
+      expect(@user.errors.full_messages).to include('is invalid')
+    end
+
+    it 'lastnameは漢字・ひらがな・カタカナ以外では登録できないこと' do
+      @user.lastname = 'aaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('is invalid')
+    end
+
+    it 'firstnameは漢字・ひらがな・カタカナ以外では登録できないこと' do
+      @user.firstname = 'aaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('is invalid')
+    end
+
+    it 'passwordは英語のみでは登録できないこと' do
+      @user.password = 'aaaaaa'
+      @user.confirmation = 'aaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('is invalid')
+    end
+
+    it 'passwordは数字のみでは登録できないこと' do
+      @user.password = '123456'
+      @user.password_confirmation = '123456'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('is invalid')
+    end
+
+    it 'passwordは全角では登録できないこと' do
+      @user.password = 'ああああああ'
+      @user.password_confirmation = 'ああああああ'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('is invalid')
+    end
   end
 end
