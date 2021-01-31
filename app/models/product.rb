@@ -5,11 +5,13 @@ class Product < ApplicationRecord
         validates :image
         validates :productname
         validates :explanation
-        validates :category_id
-        validates :state_id
-        validates :delivery_fee_id
-        validates :area_id
-        validates :delivery_time_id
+        with_options numerically:{ other_than 1 } do
+            validates :category_id
+            validates :state_id
+            validates :delivery_fee_id
+            validates :area_id
+            validates :delivery_time_id
+        end       
         validates :price,numerically:{greater_than:300,less_than:9999999},format:{ with: /\A[0-9]+\z/ }
     end
     validates
