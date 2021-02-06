@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :user
+    has_one_attached :image
     #has_one :purchace_history
     with_options presence: true do
         validates :image
