@@ -16,8 +16,9 @@ RSpec.describe Product, type: :model do
   context 'ユーザーが登録できない時' do
 
     it 'imageが空では保存できないこと' do
-      @product.image = ''
+      @product.image = nil
       @product.valid?
+      expect(@product.errors.full_messages).to include("Image can't be blank")
     end
 
     it 'productnameが空では登録できないこと' do
@@ -76,6 +77,18 @@ RSpec.describe Product, type: :model do
 
     it 'priceが¥9.999.999より上では保存できないこと' do
       @product.price = ('10,000,000')
+      @product.valid?
+      expect(@product.errors.full_messages).to include('Price is not a number')
+    end
+
+    it 'priceが半角英数混合では保存できないこと' do
+      @product.price = ('aaa111')
+      @product.valid?
+      expect(@product.errors.full_messages).to include('Price is not a number')
+    end
+
+    it 'priceが半角英語では保存できないこと' do
+      @product.price = ('aaaaaa')
       @product.valid?
       expect(@product.errors.full_messages).to include('Price is not a number')
     end
