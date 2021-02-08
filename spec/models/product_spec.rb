@@ -6,10 +6,14 @@ RSpec.describe Product, type: :model do
       @product = FactoryBot.build(:product)
     end
 
+    context 'ユーザー登録ができる時' do
     it 'imageがあれば保存できる' do
       @product.image = fixture_file_upload('app/assets/images/card-amex.gif')
       @product.valid?
     end
+
+    end
+  context 'ユーザーが登録できない時' do
 
     it 'imageが空では保存できないこと' do
       @product.image = ''
@@ -111,5 +115,7 @@ RSpec.describe Product, type: :model do
       @product.valid?
       expect(@product.errors.full_messages).to include('Delivery time must be other than 1')
     end
+
+  end
   end
   end
