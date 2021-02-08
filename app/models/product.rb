@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_one_attached :image
   # has_one :purchace_history
   with_options presence: true do
-    # validates :image
+    validates :image
     validates :productname
     validates :explanation
     with_options numericality: { other_than: 1 } do
