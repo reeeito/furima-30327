@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @products = Product.order('created_at CESC')
   end
 
   def create
