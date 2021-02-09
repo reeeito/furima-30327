@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-
+  
   private
 
   def product_params
