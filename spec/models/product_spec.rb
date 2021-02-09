@@ -82,19 +82,19 @@ RSpec.describe Product, type: :model do
     end
 
     it 'priceが半角英数混合では保存できないこと' do
-      @product.price = ('aaa111')
+      @product.price = aaa111
       @product.valid?
       expect(@product.errors.full_messages).to include('Price is not a number')
     end
 
     it 'priceが半角英語では保存できないこと' do
-      @product.price = ('aaaaaa')
+      @product.price = aaaaaa
       @product.valid?
       expect(@product.errors.full_messages).to include('Price is not a number')
     end
 
     it 'priceが全角では保存できないこと' do
-      @product.price = ('９９９９')
+      @product.price = ９９９９
       @product.valid?
       expect(@product.errors.full_messages).to include('Price is not a number')
     end
