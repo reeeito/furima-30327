@@ -14,15 +14,7 @@ RSpec.describe Product, type: :model do
 
     it '全て入力されている状態で保存できる' do
       @product.image = fixture_file_upload('app/assets/images/card-amex.gif')
-      @product.productname = ('商品')
-      @product.explanation = ('詳細')
-      @product.category_id = 2
-      @product.state_id = 2
-      @product.delivery_fee_id = 2
-      @product.area_id = 2
-      @product.delivery_time_id = 2
-      @product.price = 5000
-      @product.valid?
+      expect(@product).to be_valid
     end
 
     end
