@@ -81,7 +81,7 @@ RSpec.describe Product, type: :model do
     end
 
     it 'priceが¥9.999.999より上では保存できないこと' do
-      @product.price = 10,000,000
+      @product.price = 10000000
       @product.valid?
       expect(@product.errors.full_messages).to include('Price is not a number')
     end
