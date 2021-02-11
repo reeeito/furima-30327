@@ -1,12 +1,12 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  belongs_to :delivery_fee
-  belongs_to :state
-  belongs_to :category
-  belongs_to :delivery
-  belongs_to :area
-  belongs_to :delivery_time
+  belongs_to :delivery_fee,optional: true
+  belongs_to :state,optional: true
+  belongs_to :category,optional: true
+  belongs_to :delivery,optional: true
+  belongs_to :area,optional: true
+  belongs_to :delivery_time,optional: true
   has_one_attached :image
   # has_one :purchace_history
   with_options presence: true do
