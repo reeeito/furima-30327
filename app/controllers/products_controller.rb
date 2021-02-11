@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
   #before_action :authenticate_user!
+  def edit
+    @product = Product.find(params[:id])
+  end
 
   def show
     @product = Product.find(params[:id])
