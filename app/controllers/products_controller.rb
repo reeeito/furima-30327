@@ -2,11 +2,11 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:edit]
 
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
       redirect_to root_path
     else
-      render  :new
+      render  :edit
     end
   end
 
