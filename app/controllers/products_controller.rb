@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit,:update,:new,:create,]
+  before_action :authenticate_user!, only: [:edit,:update,:new,:create,:destory]
   before_action :product, only: [:update,:edit,:show,:destory]
-  before_action :user, only: [:edit, :update]
+  before_action :user, only: [:edit, :update, :destory]
 
   def update
     if @product.update(product_params)
