@@ -103,7 +103,7 @@ RSpec.describe User, type: :model do
 
     it 'emailは@が含まれていないと登録ができない' do
       @user.email = 'samplesample.com'
-      @usr.valid?
+      @user.valid?
       expect(@user.errors.full_messages).to include('is invalid')
     end
 
@@ -130,14 +130,14 @@ RSpec.describe User, type: :model do
       @user.password = '123456'
       @user.password_confirmation = '123456'
       @user.valid?
-      expect(@user.errors.full_messages).to include('is invalid')
+      expect(@user.errors.full_messages).to include('Password is invalid')
     end
 
     it 'passwordは全角では登録できないこと' do
       @user.password = 'ああああああ'
       @user.password_confirmation = 'ああああああ'
       @user.valid?
-      expect(@user.errors.full_messages).to include('is invalid')
+      expect(@user.errors.full_messages).to include('Password is invalid')
     end
   end
 end
