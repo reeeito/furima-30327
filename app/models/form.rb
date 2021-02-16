@@ -1,6 +1,7 @@
-class Sold < ApplicationRecord
+class form
     include ActiveModel::Model
     attr_accessor :postal_code,:area_id,:municipaity,:address,:tel
+
 
     belongs_to :purchace_history
 
@@ -11,8 +12,12 @@ class Sold < ApplicationRecord
       validates :address
       validates :tel
       validates :purchace_history
+      validates :user
+      validates :product
     end
 
     def save
+        sold.create(postal_code: postal_code,area_id: area_id,municipaity: municipaity,address: address,tel: tel, user_id: user.id)
     end
+
 end
