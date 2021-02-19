@@ -16,7 +16,7 @@ class SoldsController < ApplicationController
     private
 
     def sold_params
-        params.require(:sold).permit(:postal_code,:area_id,:municipaity,:address,:building_name,:tel).merge(user_id: current_user.id)
+        params.permit(:postal_code,:area_id,:municipaity,:address,:building_name,:tel)
     end
 
 end

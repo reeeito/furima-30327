@@ -17,7 +17,7 @@ class form
     end
 
     def save
-        sold.create(postal_code: postal_code,area_id: area_id,municipaity: municipaity,address: address,tel: tel, user_id: user.id)
+        sold.create(postal_code: postal_code,area_id: area_id,municipaity: municipaity,address: address,tel: tel)
     end
 
 end
