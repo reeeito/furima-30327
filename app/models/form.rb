@@ -1,6 +1,6 @@
 class form
     include ActiveModel::Model
-    attr_accessor :postal_code,:area_id,:municipaity,:address,:tel
+    attr_accessor :postal_code,:area_id,:municipaity,:address,:tel,:user, :product
 
 
     belongs_to :purchace_history
@@ -18,6 +18,7 @@ class form
 
     def save
         sold.create(postal_code: postal_code,area_id: area_id,municipaity: municipaity,address: address,tel: tel)
+        purchace_history.create(:user user.id,:product product.id)
     end
 
 end
