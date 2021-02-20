@@ -1,3 +1,3 @@
 class Sold < ApplicationRecord
-    belongs_to :purchace_history
+    belongs_to :purchase_history
 end

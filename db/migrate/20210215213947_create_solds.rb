@@ -7,7 +7,7 @@ class CreateSolds < ActiveRecord::Migration[6.0]
       t.string     :address,          null: false
       t.string     :building_name
       t.string     :tel,              null: false
-      t.references :purchace_history, foreign_key: true
+      t.references :purchase_history, foreign_key: true
       t.timestamps
     end
   end

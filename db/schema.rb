@@ -53,9 +53,13 @@ ActiveRecord::Schema.define(version: 2021_02_15_213947) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "purchace_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "purchase_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_purchase_histories_on_product_id"
+    t.index ["user_id"], name: "index_purchase_histories_on_user_id"
   end
 
   create_table "solds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -65,10 +69,10 @@ ActiveRecord::Schema.define(version: 2021_02_15_213947) do
     t.string "address", null: false
     t.string "building_name"
     t.string "tel", null: false
-    t.bigint "purchace_history_id"
+    t.bigint "purchase_history_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["purchace_history_id"], name: "index_solds_on_purchace_history_id"
+    t.index ["purchase_history_id"], name: "index_solds_on_purchase_history_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -91,5 +95,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_213947) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "users"
-  add_foreign_key "solds", "purchace_histories"
+  add_foreign_key "purchase_histories", "products"
+  add_foreign_key "purchase_histories", "users"
+  add_foreign_key "solds", "purchase_histories"
 end
