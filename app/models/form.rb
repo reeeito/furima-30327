@@ -3,11 +3,11 @@ class Form
     attr_accessor :postal_code,:area_id,:municipaity,:address,:tel,:user_id, :product_id
 
     with_options presence: true do
-      validates :postal_code
-      validates :area_id
+      validates :postal_code,format: { with: /\A\d{3}[-]\d{4}\z/ } 
+      validates :area_id,numericality: { other_than: 1 }
       validates :municipaity
       validates :address
-      validates :tel
+      validates :tel,format: { with: /\A\d{11}\z/ } 
       validates :user_id
       validates :product_id
     end
@@ -18,3 +18,4 @@ class Form
     end
 
 end
+
