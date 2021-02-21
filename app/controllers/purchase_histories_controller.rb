@@ -1,13 +1,13 @@
 class PurchaseHistoriesController < ApplicationController
     def index
-        @PurchaseHistory = PurchaseHistory.new
+        @purchaseHistory = Form.new(purchase_history_params)
+        @purchaseHistory = Sold.includes(:purchase_history)
     end
 
     def create
-        binding.pry
-        @PurchaseHistory = PurchaseHistory.new(purchase_history_params)
-        if @PurchaseHistory.valid?
-            @PurchaseHistory.save
+        @purchaseHistory = Form.new(purchase_history_params)
+        if @purchaseHistory.valid?
+            @purchaseHistory.save
             return redirect_to root_path
         else
             render 'index'
@@ -17,6 +17,6 @@ class PurchaseHistoriesController < ApplicationController
     private
 
     def purchase_history_params
-        params.permit(:user_id,:product_id).merge(user_id: current_user.id)
+        params.permit(:postal_code,:area_id,:municipaity,:address,:tel,:user_id, :product_id, :purchase_history_id).merge(user_id: current_user.id)
     end
 end

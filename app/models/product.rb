@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   belongs_to :area,optional: true
   belongs_to :delivery_time,optional: true
   has_one_attached :image
-  # has_one :purchace_history
+  has_one :purchase_history
   with_options presence: true do
     validates :image
     validates :productname
