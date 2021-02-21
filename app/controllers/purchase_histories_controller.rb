@@ -24,6 +24,6 @@ class PurchaseHistoriesController < ApplicationController
 
     def user
         @product = Product.find(params[:product_id])
-        redirect_to root_path unless current_user.id == @product.user.id
+        #redirect_to root_path unless current_user.id == @product.user.id
     end
 end
