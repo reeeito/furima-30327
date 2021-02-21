@@ -1,6 +1,7 @@
 class PurchaseHistoriesController < ApplicationController
     def index
         @purchaseHistory = Form.new(purchase_history_params)
+        @product = Product.find(params[:product_id])
     end
 
     def create
