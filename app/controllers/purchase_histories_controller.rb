@@ -1,7 +1,6 @@
 class PurchaseHistoriesController < ApplicationController
     def index
         @purchaseHistory = Form.new(purchase_history_params)
-        @purchaseHistory = Sold.includes(:purchase_history)
     end
 
     def create

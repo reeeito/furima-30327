@@ -33,7 +33,9 @@
     <%# /支払額の表示 %>
     <% end %>
 
-    <%= form_with model: @purchase_history, url:product_purchase_histories_path,  id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @purchaseHistory, url:product_purchase_histories_path,  id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @purchaseHistory %>
 
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
