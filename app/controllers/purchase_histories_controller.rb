@@ -27,7 +27,7 @@ class PurchaseHistoriesController < ApplicationController
   end
 
   def purchase_history_params
-    params.require(:form).permit(:postal_code, :area_id, :municipaity, :address, :tel, :user_id, :product_id, :purchase_history_id)
+    params.require(:form).permit(:postal_code, :area_id, :municipaity, :address, :tel,:building_name, :user_id, :product_id, :purchase_history_id)
           .merge(user_id: current_user.id, token: params[:token], product_id: @product.id)
   end
 

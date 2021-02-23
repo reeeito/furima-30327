@@ -1,6 +1,6 @@
 class Form
   include ActiveModel::Model
-  attr_accessor :postal_code, :area_id, :municipaity, :address, :tel, :user_id, :product_id, :token
+  attr_accessor :postal_code, :area_id, :municipaity, :address,:building_name, :tel, :user_id, :product_id, :token
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/ }
@@ -15,7 +15,7 @@ class Form
 
   def save
     purchase_history = PurchaseHistory.create(user_id: user_id, product_id: product_id)
-    Sold.create(postal_code: postal_code, area_id: area_id, municipaity: municipaity, address: address, tel: tel,
+    Sold.create(postal_code: postal_code, area_id: area_id, municipaity: municipaity, address: address, building_name: building_name,tel: tel,
                 purchase_history_id: purchase_history.id)
   end
 end
