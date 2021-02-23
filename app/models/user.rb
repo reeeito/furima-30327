@@ -15,7 +15,7 @@ class User < ApplicationRecord
       validates :lastname_kana
       validates :firstname_kana
     end
-    #validates :password#format: { #with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)\w{6,12}\z/ }
+    # validates :password#format: { #with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)\w{6,12}\z/ }
   end
 
   has_many :products
