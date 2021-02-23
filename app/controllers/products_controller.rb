@@ -11,7 +11,11 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    if @product.purchase_history
+      redirect_to root_path
+    end
+  end
 
   def show; end
 
