@@ -7,6 +7,7 @@ FactoryBot.define do
     tel { '00000000000' }
     user_id { 2 }
     product_id { 2 }
+    token {"tok_abcdefghijk00000000000000000"}
     #association :user
     #association :product
     #association :purchase_history

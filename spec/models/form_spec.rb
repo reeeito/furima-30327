@@ -48,6 +48,13 @@ RSpec.describe Form, type: :model do
         @purchaseHistory.valid?
         expect(@purchaseHistory.errors.full_messages).to include('Area must be other than 1')
       end
+
+      it 'tokenが空では保存できないこと' do
+        @purchaseHistory.token = nil
+        @purchaseHistory.valid?
+        expect(@purchaseHistory.errors.full_messages).to include("Token can't be blank")
+      end
+
      end
   end
 end

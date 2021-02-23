@@ -1,6 +1,6 @@
 class Form
     include ActiveModel::Model
-    attr_accessor :postal_code,:area_id,:municipaity,:address,:tel,:user_id, :product_id
+    attr_accessor :postal_code,:area_id,:municipaity,:address,:tel,:user_id, :product_id,:token
 
     with_options presence: true do
       validates :postal_code,format: { with: /\A\d{3}[-]\d{4}\z/ } 
@@ -10,6 +10,7 @@ class Form
       validates :tel,format: { with: /\A\d{11}\z/ } 
       validates :user_id
       validates :product_id
+      validates :token
     end
 
     def save
