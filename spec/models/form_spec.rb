@@ -3,9 +3,12 @@ require 'rails_helper'
 RSpec.describe Form, type: :model do
   describe '#create' do
     before do
-      @purchaseHistory = FactoryBot.build(:form)
-      @user = FactoryBot.build(:user)
+      @user = FactoryBot.create(:user)
       @product = FactoryBot.build(:product)
+      @product.image = fixture_file_upload('app/assets/images/card-amex.gif')
+      @products = @product.save
+      @purchaseHistory = FactoryBot.build(:form, user_id: @user.id, product_id: @product.id)
+      sleep 0.1
     end
 
     context '商品が登録できる時' do
