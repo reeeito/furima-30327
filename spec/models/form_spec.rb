@@ -6,7 +6,7 @@ RSpec.describe Form, type: :model do
       @user = FactoryBot.create(:user)
       @product = FactoryBot.build(:product)
       @product.image = fixture_file_upload('app/assets/images/card-amex.gif')
-      @products = @product.save
+      @product.save
       @purchaseHistory = FactoryBot.build(:form, user_id: @user.id, product_id: @product.id)
       sleep 0.1
     end
@@ -31,7 +31,7 @@ RSpec.describe Form, type: :model do
       end
 
       it 'postal_codeはハイフンなしでは保存できないこと' do
-        @purchaseHistory.postal_code = (00000000)
+        @purchaseHistory.postal_code = ("00000000")
         @purchaseHistory.valid?
         expect(@purchaseHistory.errors.full_messages).to include("Postal code is invalid")
       end
