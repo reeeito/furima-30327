@@ -16,7 +16,7 @@ class User < ApplicationRecord
       validates :firstname_kana
     end
   end
-  validates :password,format: { with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)\w{6,12}\z/ }
+  validates :password,format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
 
   has_many :products
   has_many :purchase_histries
