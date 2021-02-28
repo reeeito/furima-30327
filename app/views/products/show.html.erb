@@ -25,17 +25,17 @@
 
 
     <% if user_signed_in?%>
-      <% if current_user.nickname == @product.user.nickname %>
-    <%= link_to '商品の編集', edit_product_path(@product.id), method: :get, class: "item-red-btn" %>
-    <p class='or-text'>or</p>
-    <%= link_to '削除', product_path(@product.id), method: :delete, class:'item-destroy' %>
-      <%else%>
-      <% if @product.purchase_history %>
-      <% else %>
-    <%= link_to '購入画面に進む',product_purchase_histories_path(@product.id),class:"item-red-btn"%>
+       <% if @product.purchase_history %>
+       <% else %>
+         <% if current_user.nickname == @product.user.nickname %>
+         <%= link_to '商品の編集', edit_product_path(@product.id), method: :get, class: "item-red-btn" %>
+         <p class='or-text'>or</p>
+         <%= link_to '削除', product_path(@product.id), method: :delete, class:'item-destroy' %>
+         <% else %>
+         <%= link_to '購入画面に進む',product_purchase_histories_path(@product.id),class:"item-red-btn"%>
+         <% end %>
        <% end %>
-      <% end %>
-    <% else %>
+    <%else%>
     <% end %>
 
     <div class="item-explain-box">
